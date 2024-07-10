@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcial.ControllerTarjeta">
+  <tabs>
+    <Tab text="Create">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <AnchorPane prefHeight="341.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label layoutX="129.0" layoutY="100.0" text="ClienteID">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="91.0" layoutY="140.0" text="Numero Tarjeta">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="59.0" layoutY="180.0" text="Fecha de Expiracion">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="94.0" layoutY="220.0" text="Tipo de Tarjeta">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtClienteId" layoutX="218.0" layoutY="98.0" prefHeight="25.0" prefWidth="470.0" promptText="Ej. 1" />
+                        <TextField fx:id="txtNumTarjeta" layoutX="218.0" layoutY="138.0" prefHeight="25.0" prefWidth="470.0" promptText="Ej. 1234 5678 9101 1121  (DEJAR LOS ESPACIOS)" />
+                        <TextField fx:id="txtFechaExp" layoutX="218.0" layoutY="178.0" prefHeight="25.0" prefWidth="470.0" promptText="Ej. 2028-07-09   (YYYY-MM-DD)" />
+                        <TextField fx:id="txtTipoTarjeta" layoutX="218.0" layoutY="218.0" prefHeight="25.0" prefWidth="470.0" promptText="Ej. Credito o Debito (SOLO ESCRIBIR UNO))" />
+                        <Label layoutX="125.0" layoutY="263.0" text="Facilitador">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtFacilitador" layoutX="218.0" layoutY="261.0" prefHeight="25.0" prefWidth="470.0" promptText="1. VISA  2. MASTERCARD 3. AMERICAN EXPRESS (NUMERO) (ESCOGER SOLAMENTE 1)" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="100.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="119.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button layoutX="138.0" layoutY="44.0" mnemonicParsing="false" onAction="#AgregarTarjeta" text="Agregar cliente a DB">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
+                        <Button layoutX="456.0" layoutY="44.0" mnemonicParsing="false" onAction="#RegresarMenu" text="Regresar a menu">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="100.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+    </Tab>
+    <Tab text="Read">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="112.0" prefWidth="700.0">
+                     <children>
+                        <AnchorPane prefHeight="112.0" prefWidth="249.0">
+                           <children>
+                              <Button layoutX="109.0" layoutY="79.0" mnemonicParsing="false" onAction="#SeleccionAll" text="All" />
+                              <Label layoutX="23.0" layoutY="26.0" text="Seleccionar Todas las Tarjeta:">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="112.0" prefWidth="257.0">
+                           <children>
+                              <Button layoutX="85.0" layoutY="79.0" mnemonicParsing="false" onAction="#SeleccionId" text="Un Cliente" />
+                              <Label layoutX="45.0" layoutY="14.0" prefHeight="21.0" prefWidth="163.0" text="Seleccionar ID Tarjeta">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtIdSeleccion" layoutX="24.0" layoutY="44.0" prefHeight="25.0" prefWidth="193.0" promptText="Solo debe poner el Id del Cliente" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="54.0" layoutY="44.0" mnemonicParsing="false" onAction="#RegresarMenu" text="Regresar Menu" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="359.0" prefWidth="700.0">
+                     <children>
+                        <TableView fx:id="TableTarjeta" layoutY="7.0" prefHeight="350.0" prefWidth="950.0" AnchorPane.leftAnchor="25.0">
+                          <columns>
+                            <TableColumn fx:id="ColumnId" prefWidth="53.0" text="Id" />
+                            <TableColumn fx:id="ColumnClienteId" prefWidth="60.0" text="ClienteID" />
+                              <TableColumn fx:id="ColumnNumTarjeta" prefWidth="158.0" text="NumTarjeta" />
+                              <TableColumn fx:id="ColumnFexhaExpiracion" prefWidth="148.0" text="FechaExpiracion" />
+                              <TableColumn fx:id="ColumnTipoTarjeta" minWidth="0.0" prefWidth="134.0" text="Tipo Tarjeta" />
+                              <TableColumn fx:id="ColumnFacilitadorId" prefWidth="146.0" text="FacilitadorID" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+    </Tab>
+      <Tab text="Update">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <AnchorPane prefHeight="364.0" prefWidth="700.0">
+                     <children>
+                        <Label layoutX="129.0" layoutY="100.0" text="ClienteID">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="91.0" layoutY="142.0" text="Numero Tarjeta">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="64.0" layoutY="182.0" text="Fecha de Expiracion">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="94.0" layoutY="222.0" text="Tipo de Tarjeta">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtClienteIdUpdate" layoutX="210.0" layoutY="100.0" prefHeight="25.0" prefWidth="470.0" promptText="Ej. 5" />
+                        <TextField fx:id="txtNumeroTarjetaUpdate" layoutX="210.0" layoutY="140.0" prefHeight="25.0" prefWidth="470.0" promptText="Ej. 1234 5678 9101 1121 (DEJAR LOS ESPACIOS)" />
+                        <TextField fx:id="txtFechaExpUpdate" layoutX="210.0" layoutY="180.0" prefHeight="25.0" prefWidth="470.0" promptText="Ej, 2026-11-12 (DEJAR CON LOS SIGNOS) (YYYY-MM-DD) " />
+                        <TextField fx:id="txtTipoTarjetaUpdate" layoutX="210.0" layoutY="220.0" prefHeight="25.0" prefWidth="470.0" promptText="Debito o Credito (SOLO ELEGIR 1)" />
+                        <Label layoutX="129.0" layoutY="42.0" prefHeight="21.0" prefWidth="169.0" text="Id de Tarjeta a Actualizar">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtIdActualizar" layoutX="316.0" layoutY="40.0" prefHeight="25.0" prefWidth="272.0" promptText="Ej. 1" />
+                        <Label layoutX="125.0" layoutY="262.0" text="Facilitador">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtFacilitadorUpdate" layoutX="210.0" layoutY="260.0" prefHeight="25.0" prefWidth="470.0" promptText="1. VISA  2. MASTERCARD 3. AMERICAN EXPRESS (NUMERO) (SOLO ELEGIR 1)" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="100.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="144.0" prefWidth="700.0">
+                     <children>
+                        <Button layoutX="162.0" layoutY="51.0" mnemonicParsing="false" onAction="#ActualizarDB" text="Actualizar DB" />
+                        <Button layoutX="510.0" layoutY="48.0" mnemonicParsing="false" onAction="#RegresarMenu" text="Regresar Menu" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="100.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab text="Delete">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <AnchorPane prefHeight="353.0" prefWidth="700.0">
+                     <children>
+                        <Label layoutX="272.0" layoutY="158.0" text="Id Tarejta a Eliminar">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtDeletId" layoutX="214.0" layoutY="189.0" prefHeight="25.0" prefWidth="272.0" promptText="Ej. 10" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="150.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="152.0" prefWidth="700.0">
+                     <children>
+                        <Button layoutX="446.0" layoutY="55.0" mnemonicParsing="false" onAction="#RegresarMenu" text="Regresar Menu" />
+                        <Button layoutX="194.0" layoutY="55.0" mnemonicParsing="false" onAction="#Delete" text="Delete " />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="150.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

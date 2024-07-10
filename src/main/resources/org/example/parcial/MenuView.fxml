@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.parcial.ControllerMenu">
+   <children>
+      <Label text="Create, Read, Update y Delete de la tabla Cliente">
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#CrudCliente" text="CRUD Clientes">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Button>
+      <Label text="Create, Read, Update y Delete de la tabla Tarjeta">
+         <VBox.margin>
+            <Insets bottom="5.0" top="50.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#CrudTarjeta" text="CRUD Tarjeta ">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Button>
+      <Label text="Create, Read, Update y Delete de la tabla Compra">
+         <VBox.margin>
+            <Insets bottom="5.0" top="50.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#CrudCompra" text="CRUD Compra">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#RegresarVentanaPrincipal" text="REGRESAR">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="50.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>
